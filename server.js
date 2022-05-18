@@ -13,8 +13,8 @@ app.get('/budgets/', (req, res)=>{
 
 // New
 app.get('/budgets/new/', (req, res)=>{
-
-})
+    res.render('new.ejs');
+});
 
 // Create
 
