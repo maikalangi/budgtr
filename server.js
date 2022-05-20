@@ -5,25 +5,32 @@ const budget = require('./models/budget')
 const app = express();
 
 const port = 3002;
+// Middleware
+app.use(express.static('public'));
 
 // Index
-app.get('/budgets/', (req, res)=>{
+app.get('/', (req, res)=>{
+    res.send('Hello World');
+});
+
+app.get('/budget/', (req, res)=>{
     res.render('index.ejs', { budget });
 });
 
 // New
-app.get('/budgets/new/', (req, res)=>{
+app.get('/budget/new/', (req, res)=>{
     res.render('new.ejs');
 });
 
 // Create
 
 // Show
-app.get('/budgets/:id', (req, res)=>{
+app.get('/budget/:id', (req, res)=>{
     res.render('show.ejs', {
         budget: budget[req.params.id]
     });
 });
+
 
 app.listen(port, ()=>{
     console.log('listening to port ', port);
