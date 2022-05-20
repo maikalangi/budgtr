@@ -8,7 +8,9 @@
 
     <div class="container">
         <h1>Budgtr ALL</h1>
-    
+        <form action="/budget/new/">
+            <input type="submit" name="new" value="New Entry">
+        </form>
         <table>
             <% for( let i = 0; i < budget.length; i++ ) { %>
                 <tr>

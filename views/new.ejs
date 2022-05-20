@@ -5,6 +5,16 @@
     <title>New Budget</title>
 </head>
 <body>
-    <h1>New Budget</h1>
+    <div class="container">
+        <h1>New Budget</h1>
+        <form action="/budget" method="POST"> <br>
+            <input type="date" name="date"> <br>
+            <input type="text" name="name" placeholder="name"> <br>
+            <input type="number" name="amount" placeholder="amount"> <br>
+            <input type="text" name="from" placeholder="from"> <br>
+            <input type="submit" name="submit"> <br>
+            <button type="button" value="Back" onclick="history.back(-1)">Back</button>
+        </form>
+    </div>
 </body>
 </html>
