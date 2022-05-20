@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <%- include('partials/head.ejs')  %> 
-    <title>Budgtr Show ID</title>
+    <title><%= budget.name %> </title>
 </head>
 <body>
-    <h1>Budgtr Show ID</h1>
+    <div class="container">
+        <h1><%= budget.name %> </h1>
+            <button type="button" value="Back" onclick="history.back(-1)">Back</button>
+        <h6>date</h6>
+        <p><%= budget.date %></p>
+        <h6>name</h6>
+        <p><%= budget.name %></p>
+        <h6>from</h6>
+        <p><%= budget.from %></p>
+        <h6>amount</h6>
+        <p><%= budget.amount %></p>
+        <h6>tag</h6>
+        <p><%= budget.tags %></p>
+    </div>
 </body>
 </html>
