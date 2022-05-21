@@ -12,7 +12,8 @@ const port = 3002;
 
 // MIDDLEWARE
 app.use(express.static('public'));
-// app.use(bodyParser(''));
+app.use(bodyParser.text());
+app.use(express.urlencoded({ extended: false }));
 
 // ===============ROUTES===================
 
@@ -22,20 +23,30 @@ app.get('/', (req, res)=>{
     res.send('Hello World');
 });
 // 2
-app.get('/budget/', (req, res)=>{
+app.get('/budgets/', (req, res)=>{
     res.render('index.ejs', { budget });
 });
 
 // NEW
-app.get('/budget/new/', (req, res)=>{
+app.get('/budgets/new/', (req, res)=>{
     res.render('new.ejs');
 });
 
-// CREATE
+// DELETE
+app.delete('/budgets/:id/', (req, res)=>{
+    budget.splice(req.params.id, 1);
+    res.redirect('/budgets');
+});
 
+// CREATE
+app.post('/budgets/', (req, res)=>{
+    console.log(req.body);
+    budget.push(req.body);
+    res.redirect('/budgets/');
+});
 
 // SHOW
-app.get('/budget/:id', (req, res)=>{
+app.get('/budgets/:id', (req, res)=>{
     res.render('show.ejs', {
         budget: budget[req.params.id]
     });

@@ -8,7 +8,7 @@
 
     <div class="container">
         <h1>Budgtr ALL</h1>
-        <form action="/budget/new/">
+        <form action="/budgets/new/">
             <input type="submit" name="new" value="New Entry">
         </form>
         <table>
@@ -16,7 +16,7 @@
                 <tr>
                     <td><%= budget[i].date %></td>
                     <td>
-                        <a href="/budget/<%= i %>">
+                        <a href="/budgets/<%= i %>">
                             <%= budget[i].name %>
                         </a>
                     </td>
