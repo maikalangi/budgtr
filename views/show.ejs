@@ -7,18 +7,18 @@
 <body>
     <div class="container">
         <h1><%= budget.name %> </h1>
-        <!-- <form action="/budgets/<%#budget%>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE" id="deleteindex"/>
-        </form> -->
-        <h6>date</h6>
+        <form action="/budgets/<%= budget %>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE">
+        </form>
+        <b>date</b>
         <p><%= budget.date %></p>
-        <h6>name</h6>
+        <b>name</b>
         <p><%= budget.name %></p>
-        <h6>from</h6>
+        <b>from</b>
         <p><%= budget.from %></p>
-        <h6>amount</h6>
+        <b>amount</b>
         <p><%= budget.amount %></p>
-        <h6>tag</h6>
+        <b>tag</b>
         <p><%= budget.tags %></p>
         <button type="button" value="Back" onclick="history.back(-1)">Back</button>
     </div>
