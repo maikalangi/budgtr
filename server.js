@@ -2,7 +2,6 @@
 const express = require('express');
 const res = require('express/lib/response');
 const budget = require('./models/budget');
-const bodyParser = require('body-parser');
 
 // APP INITIALIZER
 const app = express();
@@ -11,8 +10,7 @@ const app = express();
 const port = 3002;
 
 // MIDDLEWARE
-app.use(express.static('public'));
-app.use(bodyParser.text());
+app.use(express.static('./public'));
 app.use(express.urlencoded({ extended: false }));
 
 // ===============ROUTES===================
@@ -32,15 +30,8 @@ app.get('/budgets/new/', (req, res)=>{
     res.render('new.ejs');
 });
 
-// DELETE
-app.delete('/budgets/:id/', (req, res)=>{
-    budget.splice(req.params.id, 1);
-    res.redirect('/budgets');
-});
-
 // CREATE
 app.post('/budgets/', (req, res)=>{
-    console.log(req.body);
     budget.push(req.body);
     res.redirect('/budgets/');
 });
